@@ -8,7 +8,7 @@ from ArduinoComms import ArduinoComms
 class KeyboardController:
     def __init__(self):
         self.arduino = ArduinoComms()
-        self.speed = 1500
+        self.speed = 0
         self.steer = 90
         self.last_action_time = time.time()
 
@@ -27,7 +27,7 @@ class KeyboardController:
             self.speed += 10
         else:
             self.speed -= 10
-        self.speed = max(min(self.speed, 2000), 1000)
+        self.speed = max(min(self.speed, 500), -500)
         if self.arduino.connected():
             self.arduino.set_drive_motor_value(self.speed)
 
@@ -41,7 +41,7 @@ class KeyboardController:
             self.arduino.set_steering_motor_value(self.steer)
 
     def stop(self):
-        self.speed = 1500
+        self.speed = 0
         self.steer = 90
         if self.arduino.connected():
             self.arduino.set_steering_motor_value(self.steer)
