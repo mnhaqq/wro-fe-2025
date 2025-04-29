@@ -15,7 +15,7 @@ def convert_baud_rate(baud_rate):
 class ArduinoComms:
     def __init__(self):
         self.serial_conn = None
-        self.timeout_s = 1  # default timeout in seconds
+        self.timeout_s = 1 
 
     def connect(self, serial_device, baud_rate, timeout_ms):
         self.timeout_s = timeout_ms / 1000.0

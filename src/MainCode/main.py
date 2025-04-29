@@ -1,15 +1,17 @@
-from ArduinoComms.ArduinoComms import ArduinoComms
+#!./env/bin/python3
+
+from ArduinoComms import ArduinoComms
 
 def main():
     arduino = ArduinoComms()
 
     try:
-        arduino.connect('/dev/ttyUSB0', 9600, 1000)
+        arduino.connect('/dev/ttyACM0', 9600, 1000)
 
         if arduino.connected():
             print("Connected to Arduino.")
 
-            arduino.set_drive_motor_value(1600)
+            arduino.set_drive_motor_value(1700)
             arduino.set_steering_motor_value(60)
 
         else:
