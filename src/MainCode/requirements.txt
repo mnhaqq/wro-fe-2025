@@ -1,0 +1,4 @@
+keyboard==0.13.5
+numpy==2.2.5
+pillow==11.2.1
+pyserial==3.5
