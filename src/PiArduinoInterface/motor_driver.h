@@ -1,5 +1,5 @@
 #ifdef ESC_DRIVER
-   #define ESC_PIN 5
+   #define ESC_PIN 3
 #endif
 
 void initMotorController();
