@@ -28,6 +28,7 @@ class KeyboardController:
         else:
             self.speed -= 10
         self.speed = max(min(self.speed, 500), -500)
+        print(self.speed)
         if self.arduino.connected():
             self.arduino.set_drive_motor_value(self.speed)
 
@@ -36,7 +37,7 @@ class KeyboardController:
             self.steer += 5
         else:
             self.steer -= 5
-        self.steer = max(min(self.steer, 120), 60)
+        self.steer = max(min(self.steer, 135), 45)
         if self.arduino.connected():
             self.arduino.set_steering_motor_value(self.steer)
 
