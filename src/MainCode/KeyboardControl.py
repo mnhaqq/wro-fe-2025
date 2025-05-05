@@ -60,9 +60,9 @@ class KeyboardController:
                     if keyboard.is_pressed('s'):
                         self.set_speed(False)
                     if keyboard.is_pressed('a'):
-                        self.set_steer(False)
-                    if keyboard.is_pressed('d'):
                         self.set_steer(True)
+                    if keyboard.is_pressed('d'):
+                        self.set_steer(False)
                     if keyboard.is_pressed('space'):
                         self.stop()
                     self.last_action_time = now
