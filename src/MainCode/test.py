@@ -6,7 +6,7 @@ def main():
     arduino = ArduinoComms()
 
     try:
-        arduino.connect('/dev/ttyACM0', 9600, 1000)
+        arduino.connect('/dev/serial/by-id/usb-1a86_USB2.0-Ser_-if00-port0', 9600, 1000)
 
         if arduino.connected():
             print("Connected to Arduino.")

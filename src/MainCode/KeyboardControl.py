@@ -14,7 +14,7 @@ class KeyboardController:
 
     def arduino_setup(self):
         try:
-            self.arduino.connect('/dev/ttyACM0', 9600, 1000)
+            self.arduino.connect('/dev/serial/by-id/usb-1a86_USB2.0-Ser_-if00-port0', 9600, 1000)
             if self.arduino.connected():
                 print("Connected to Arduino.")
             else:

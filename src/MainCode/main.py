@@ -42,7 +42,7 @@ def main():
     time.sleep(1)
 
     arduino = ArduinoComms()
-    arduino.connect("/dev/ttyUSB0", 9600, 1000)
+    arduino.connect("/dev/serial/by-id/usb-1a86_USB2.0-Ser_-if00-port0", 9600, 1000)
 
     pid = PIDController(0, 0, 0)
 
@@ -51,6 +51,7 @@ def main():
     try:
         while True:
             frame = picam2.capture_array()
+            frame = cv2.flip(frame, 0)
             error, annotated_frame = process_frame(frame)
             steer_adjust = pid.compute(error)
             steer = int(90 + np.clip(steer_adjust, -30, 30))
