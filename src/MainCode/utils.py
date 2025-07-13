@@ -1,5 +1,7 @@
 import cv2
 import numpy as np
+from masks import rOrange, rBlack, rBlue, rMagenta, rGreen, rRed
+
 
 def display_roi(img, ROIs, color):
     for ROI in ROIs: 
@@ -70,3 +72,29 @@ def display_variables(variables):
     
     # Move the cursor up to overwrite the previous lines
     print("\033[F" * len(names), end="")
+
+def pOverlap(img_lab, ROI, add=False):
+    
+    lower_mask = np.array(rBlack[0])
+    upper_mask = np.array(rBlack[1])
+        
+    mask = cv2.inRange(img_lab[ROI[1]:ROI[3], ROI[0]:ROI[2]], lower_mask, upper_mask)
+
+    lower_mask2 = np.array(rMagenta[0])
+    upper_mask2 = np.array(rMagenta[1])
+        
+    mask2 = cv2.inRange(img_lab[ROI[1]:ROI[3], ROI[0]:ROI[2]], lower_mask2, upper_mask2)
+        
+    if not add: 
+        mask = cv2.subtract(mask, cv2.bitwise_and(mask, mask2))
+    else:
+        mask = cv2.add(mask, mask2)
+
+    kernel = np.ones((5, 5), np.uint8)
+
+    eMask = cv2.erode(mask, kernel, iterations=1)
+
+    contours = cv2.findContours(eMask, cv2.RETR_EXTERNAL,
+    cv2.CHAIN_APPROX_SIMPLE)[-2]
+
+    return contours
