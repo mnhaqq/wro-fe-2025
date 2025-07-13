@@ -106,13 +106,13 @@ def main():
         if redArea > 3000 or greenArea > 900:
             arduino.set_drive_motor_value(speed)
             if redArea > 3000: 
-                print("Red pillar detected — go RIGHT")
+                print("Red pillar detected — right")
                 angle = sharpRight 
                 arduino.set_steering_motor_value(angle)
                 sleep(0.25)  
                 arduino.set_steering_motor_value(straightConst) 
             elif greenArea > 900:
-                print("Green pillar detected — go LEFT")
+                print("Green pillar detected — left")
                 angle = sharpLeft
                 arduino.set_steering_motor_value(angle)
                 sleep(0.25)
