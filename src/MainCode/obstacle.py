@@ -102,18 +102,18 @@ def main():
         cv2.drawContours(img[ROI2[1]:ROI2[3], ROI2[0]:ROI2[2]], cListRight, -1, (0, 255, 0), 2)
         cv2.drawContours(img[ROI_PILLAR[1]:ROI_PILLAR[3], ROI_PILLAR[0]:ROI_PILLAR[2]], cListRed, -1, (0, 0, 255), 2)
         cv2.drawContours(img[ROI_PILLAR[1]:ROI_PILLAR[3], ROI_PILLAR[0]:ROI_PILLAR[2]], cListGreen, -1, (0, 255, 0), 2)
-        #print(redArea, greenArea)
+        print(redArea, greenArea)
         if redArea > 3000 or greenArea > 900:
             arduino.set_drive_motor_value(speed)
-            if redArea > 3000: 
-                print("Red pillar detected — right")
-                angle = sharpRight 
+            if redArea > 3000:  # Detected red pillar
+                print("Red pillar detected — go RIGHT")
+                angle = sharpRight  # steer right to go around it
                 arduino.set_steering_motor_value(angle)
-                sleep(0.25)  
-                arduino.set_steering_motor_value(straightConst) 
+                sleep(0.25)  # briefly steer
+                arduino.set_steering_motor_value(straightConst)  # straighten
             elif greenArea > 900:
-                print("Green pillar detected — left")
-                angle = sharpLeft
+                print("Green pillar detected — go LEFT")
+                angle = sharpLeft  # steer left
                 arduino.set_steering_motor_value(angle)
                 sleep(0.25)
                 arduino.set_steering_motor_value(straightConst)
