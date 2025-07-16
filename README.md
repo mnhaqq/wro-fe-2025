@@ -57,7 +57,7 @@ A list of all the electrical components in the robot.
   <tr>
     <td><img src="other/readme-images/usb-cable.webp" width="200"/></td>
     <td><img src="other/readme-images/18650%203000mah%20batterys-1000x1000.png" width="200"/></td>
-    <td><img src="other/readme-images/c4110_large_jumper_wires_20cm_m-m_pack_10_134c04ff-ab7b-4528-8506-5f116c85579f.webp" width="200"/></td>
+    <td><img src="other/readme-images/jumper-wires.webp" width="200"/></td>
   </tr>
   <tr>
     <td><strong>Raspberry Pi FPC Camera Cable</strong></td>
