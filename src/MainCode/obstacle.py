@@ -1,4 +1,3 @@
-#!./env/bin/python3
 import cv2
 from picamera2 import Picamera2
 from ArduinoComms import ArduinoComms
